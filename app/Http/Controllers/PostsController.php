@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -16,9 +17,15 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        return view('home.index', ['posts' => $posts]);
+        $user = \Auth::user();
+        $posts = DB::table('posts')
+                ->where('user_id', $user->id)
+                ->orderBy('id', 'asc')
+                ->get();
+        return view('posts.index', compact('posts', 'user'));
+
     }
 
     /**
@@ -28,7 +35,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -39,7 +46,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post;
+        $user = \Auth::user();
+        $post->user_id = $user->id;
+        $post->title = $request->title;
+        $post->detail = $request->detail;
+        $post->save();
+        return redirect()->route('questions.create', ['post_id' => $post->id]);
     }
 
     /**

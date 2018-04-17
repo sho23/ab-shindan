@@ -15,5 +15,7 @@
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::resource('posts', 'PostsController');
+Route::resource('questions', 'QuestionsController');
 Route::post('scores/store', 'ScoresController@store')->name('scores.store');
 Route::get('posts/{post}/result/{score}', 'PostsController@result')->name('posts.result');
+Route::get('questions/{post_id}/create', 'QuestionsController@create')->name('questions.create');
