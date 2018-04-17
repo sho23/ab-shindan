@@ -41,19 +41,21 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}">ログイン</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
                         @else
+                            <li><a class="btn btn-outline-primary" href="{{ action('PostsController@create') }}">新規追加</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ action('PostsController@index') }}">マイページへ</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        ログアウト
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

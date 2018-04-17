@@ -15,11 +15,11 @@
 					<div class="card-body">
                         <div class="form-group">
                             <label for="title">診断のタイトル</label>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="ラーメン好き診断">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="例) ラーメン好き診断">
                         </div>
                         <div class="form-group">
                             <label for="detail">診断の説明</label>
-                            {{Form::textarea('detail','', ['id' => 'detail', 'class' => 'form-control','placeholder' => 'この診断はあなたがどれぐらいラーメン好きかを判定するよ。10個の設問に答えてあなたのラーメン好き度合いを診断しよう！'])}}
+                            {{Form::textarea('detail','', ['id' => 'detail', 'class' => 'form-control','placeholder' => '例) この診断はあなたがどれぐらいラーメン好きかを判定するよ。10個の設問に答えてあなたのラーメン好き度合いを診断しよう！'])}}
                         </div>
                         <div class="card-body text-center">
                             {!! Form::submit('次へ', ['class' => 'btn btn-primary']) !!}

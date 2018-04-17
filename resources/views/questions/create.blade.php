@@ -20,7 +20,7 @@
                         <div class="card-body">
                         <div class="form-group">
                             <label for="question{{ $i }}">設問{{ $i }}.</label>
-                            <input type="text" class="form-control" id="question{{ $i }}" name="question{{ $i }}" placeholder="行きつけのラーメン屋がある">
+                            <input type="text" class="form-control" id="question{{ $i }}" name="question{{ $i }}" placeholder="例) 行きつけのラーメン屋がある">
                         </div>
                         </div>
                     </div>
