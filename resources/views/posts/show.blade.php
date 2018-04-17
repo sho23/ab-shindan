@@ -3,9 +3,12 @@
 @section('content')
 <div id="wrap">
     <div class="container">
-        <div class="page-header">
-            <h3 class="text-center">{{ $post->title }}</h3>
-            <p class="text-left">{{ $post->detail }}</p>
+        <div class="card mb-4 text-center" style="width: 100%;">
+            <div class="card-body">
+                <h3 class="card-title">{{ $post->title }}</h5>
+                <h5 class="card-text">{{ $post->detail }}</5>
+                <p class="card-text"><small class="text-muted">{{ $count }}人が診断　平均点{{ $avg }}</small></p>
+            </div>
         </div>
         {!! Form::open(['route' => ['scores.store'], 'method' => 'post']) !!}
         {{Form::hidden('post_id', $post->id)}}

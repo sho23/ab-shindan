@@ -51,7 +51,12 @@ class PostsController extends Controller
                 ->where('post_id', $id)
                 ->orderBy('order', 'asc')
                 ->get();
-        return view('posts.show', compact('post', 'questions')); 
+        $scores = DB::table('scores')
+                ->where('post_id', $id)
+                ->get();
+        $count = $scores->count();
+        $avg =  round($scores->avg('point'));
+        return view('posts.show', compact('post', 'questions', 'count', 'avg'));
     }
 
     /**

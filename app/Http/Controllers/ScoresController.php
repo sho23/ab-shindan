@@ -26,7 +26,7 @@ class ScoresController extends Controller
         	}
         }
         $score->post_id = $request->post_id;
-        $score->point = $sum;
+        $score->point = $sum * 10;
         $score->save();
         return redirect('/');
     }
