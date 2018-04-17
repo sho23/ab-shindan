@@ -25,7 +25,6 @@ class PostsController extends Controller
                 ->orderBy('id', 'asc')
                 ->get();
         return view('posts.index', compact('posts', 'user'));
-
     }
 
     /**
@@ -103,7 +102,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = DB::table('posts')->where('id', $id)->first();
+
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -126,6 +127,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }

@@ -13,7 +13,30 @@
     					<div class="card-body text-center">
     						<h4 class="card-title">{{ $post->title }}</h4>
     						<p class="card-text">{{ $post->detail }}</p>
-    						<a href="{{ url('/posts', ['post_id' => $post->id]) }}" class="btn btn-primary">編集</a>
+                            <a href="{{ url('/posts', ['post_id' => $post->id]) }}" class="btn btn-primary">編集</a>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">削除</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">削除</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            「{{ $post->title }}」を削除します。よろしいですか？
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                            {!! Form::open(['route' => ['posts.destroy',$post->id],'method'=>'delete']) !!}
+                                                <button type="submit" class="btn btn-danger">削除</button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
     					</div>
     				</div>
                 @endforeach
