@@ -69,15 +69,15 @@ class PostsController extends Controller
         $judgment = DB::table('judgments')->where('post_id', $id)->first();
         $ranges = [];
         if ($score <= 20) {
-            $range = 1;
+            $range = 5;
         } elseif ($score > 20 && $score <= 40) {
-            $range = 2;
+            $range = 4;
         } elseif ($score > 40 && $score <= 60) {
             $range = 3;
         } elseif ($score > 60 && $score <= 80) {
-            $range = 4;
+            $range = 2;
         } else {
-            $range = 5;
+            $range = 1;
         }
         return view('posts.result', compact('post', 'judgment', 'range'));
     }
