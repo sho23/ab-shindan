@@ -15,4 +15,5 @@
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::resource('posts', 'PostsController');
-Route::post('scores/store', 'ScoresController@store')->name('scores.store');;
+Route::post('scores/store', 'ScoresController@store')->name('scores.store');
+Route::get('posts/{post}/result/{score}', 'PostsController@result')->name('posts.result');

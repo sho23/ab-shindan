@@ -63,6 +63,25 @@ class PostsController extends Controller
         return view('posts.show', compact('post', 'questions', 'count', 'avg'));
     }
 
+    public function result($id, $score)
+    {
+        $post = DB::table('posts')->where('id', $id)->first();
+        $judgment = DB::table('judgments')->where('post_id', $id)->first();
+        $ranges = [];
+        if ($score <= 20) {
+            $range = 1;
+        } elseif ($score > 20 && $score <= 40) {
+            $range = 2;
+        } elseif ($score > 40 && $score <= 60) {
+            $range = 3;
+        } elseif ($score > 60 && $score <= 80) {
+            $range = 4;
+        } else {
+            $range = 5;
+        }
+        return view('posts.result', compact('post', 'judgment', 'range'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
