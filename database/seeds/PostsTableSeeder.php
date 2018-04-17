@@ -15,6 +15,8 @@ class PostsTableSeeder extends Seeder
 			'user_id' => 1,
             'title' => 'やすこの迷子診断',
             'detail' => '迷子のレベルを診断します',
+            'jump_url' => 'http://google.com',
+            'jump_text' => 'オネエがアンタをナビゲート'
         ]);
     }
 }

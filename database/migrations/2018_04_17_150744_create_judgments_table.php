@@ -17,11 +17,11 @@ class CreateJudgmentsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('post_id')->unsigned();
-            $table->string('range1')->default("100点");
-            $table->string('range2')->default("75点");
-            $table->string('range3')->default("50点");
-            $table->string('range4')->default("25点");
-            $table->string('range5')->default("0点");
+            $table->string('range1')->default("神");
+            $table->string('range2')->default("達人");
+            $table->string('range3')->default("上級者");
+            $table->string('range4')->default("見習い");
+            $table->string('range5')->default("初心者");
             $table->string('range_text1')->default("すごい！");
             $table->string('range_text2')->default("あと少し！");
             $table->string('range_text3')->default("まぁまぁ");
