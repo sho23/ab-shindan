@@ -13,11 +13,11 @@
             <div class="row">
                 <div class="card mb-2 mx-2" style="width: 100%;">
 					<div class="card-body row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-4">
                             <ul class="list-group">
                                 <li class="list-group-item"><a href="{{ action('PostsController@edit', $postId) }}" style="display:block;">診断の編集</a></li>
                                 <li class="list-group-item"><a href="{{ action('QuestionsController@edit', $postId) }}" style="display:block;">質問の編集</a></li>
-                                <li class="list-group-item"><a href="{{ action('PostsController@edit', $postId) }}" style="display:block;">診断結果の編集</a></li>
+                                <li class="list-group-item"><a href="{{ action('JudgmentsController@edit', $postId) }}" style="display:block;">診断結果の編集</a></li>
                             </ul>
                         </div>
                         <div class="col-md-9">
@@ -36,10 +36,8 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div class="card mb-2 mx-2" style="width: 100%;">
-                                <div class="card-body text-center">
-                                    {!! Form::submit('変更する', ['class' => 'btn btn-primary']) !!}
-                                </div>
+                            <div class="card-body text-center">
+                                {!! Form::submit('変更', ['class' => 'btn btn-primary']) !!}
                             </div>
                         </div>
 					</div>
