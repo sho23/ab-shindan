@@ -9,7 +9,7 @@
                 <h5 class="card-text">診断結果の編集を行います</5>
             </div>
         </div>
-        {!! Form::open(['route' => ['judgments.update', $judgment->id], 'method' => 'put']) !!}
+        {!! Form::open(['route' => ['judgments.update', $judgment->id], 'method' => 'put', 'files' => true]) !!}
             <div class="row">
                 <div class="card mb-2 mx-2" style="width: 100%;">
 					<div class="card-body row">
@@ -33,6 +33,16 @@
                                         <div class="form-group">
                                             <label for="range_text{{$order}}">結果説明{{ $order }}</label>
                                             {{Form::text('range_text' . $order, $judgment->{'range_text'.$order}, ['id' => 'range_text' . $order, 'class' => 'form-control'])}}
+                                        </div>
+                                        <div class="form-group">
+                                            @if ($judgment->{'range_img'.$order})
+                                                <p>
+                                                    <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img'.$order}) }}" alt="" class="img-fluid">
+                                                </p>
+                                            @endif
+                                            {!! Form::label('range_img' . $order, '診断結果画像(600x100推奨)', ['class' => 'control-label']) !!}
+                                            <br>
+                                            {!! Form::file('range_img' . $order) !!}
                                         </div>
                                     </div>
                                 </div>

@@ -7,7 +7,9 @@
             <div class="card-body">
                 <h3 class="card-title">{{ $judgment->{"range" . $range} }}</h3>
                 <h5 class="card-text">{{ $judgment->{"range_text" . $range} }}</h5>
-                <img src="https://placehold.jp/3d4070/ffffff/600x300.png" alt="" class="img-fluid mt-4">
+                @if ($judgment->{'range_img'.$range})
+                    <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img' . $range}) }}" alt="" class="img-fluid mt-4">
+                @endif
             </div>
         </div>
         @if (isset($post->jump_url))
