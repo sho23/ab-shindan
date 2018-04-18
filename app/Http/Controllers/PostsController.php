@@ -128,9 +128,21 @@ class PostsController extends Controller
         }
 
         $post = Post::find($id);
+
+        if (isset($request->jump_img)) {
+            if ($this->fileUpload($request)) {
+                $filename = $request->jump_img->store('public/image/jump_images');
+                $post->jump_img = basename($filename);
+            } else {
+                return redirect()->back()->withInput()->withErrors(['file' => '画像がアップロードされていないか不正なデータです。']);
+            }
+        }
         $post->title = $request->title;
         $post->detail = $request->detail;
+        $post->jump_url = $request->jump_url;
+        $post->jump_text = $request->jump_text;
         $post->save();
+
         return redirect()->route('posts.index')->with('succeed', '編集が完了しました');
     }
 
@@ -147,10 +159,21 @@ class PostsController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function checkPostAuth($postId)
+    private function checkPostAuth($postId)
     {
         $user = \Auth::user();
         $post = DB::table('posts')->where('id', $postId)->where('user_id', $user->id)->first();
         return !empty($post);
+    }
+
+    private function fileUpload($request)
+    {
+        $this->validate($request, [
+            'jump_img' => [
+                'file',
+                'dimensions:min_width=50,min_height=50,max_width=1200,max_height=1200',
+            ]
+        ]);
+        return $request->file('jump_img')->isValid([]);
     }
 }

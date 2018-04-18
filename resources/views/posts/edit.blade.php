@@ -9,7 +9,7 @@
                 <h5 class="card-text">診断の編集を行います</5>
             </div>
         </div>
-        {!! Form::open(['route' => ['posts.update', $post->id], 'method' => 'put']) !!}
+        {!! Form::open(['route' => ['posts.update', $post->id], 'method' => 'put', 'files' => true]) !!}
             <div class="row">
                 <div class="card mb-2 mx-2" style="width: 100%;">
 					<div class="card-body row">
@@ -28,6 +28,23 @@
                             <div class="form-group">
                                 <label for="detail">診断の説明</label>
                                 {{Form::textarea('detail',$post->detail, ['id' => 'detail', 'class' => 'form-control'])}}
+                            </div>
+                            <div class="form-group">
+                                <label for="jump_url">バナーのURL</label>
+                                {{Form::text('jump_url',$post->jump_url, ['id' => 'jump_url', 'class' => 'form-control',  'placeholder' => "例) http://google.com/"])}}
+                            </div>
+                            <div class="form-group">
+                                <label for="jump_text">バナーのテキスト</label>
+                                {{Form::text('jump_text',$post->jump_text, ['id' => 'jump_text', 'class' => 'form-control',  'placeholder' => "例) 絶賛キャンペーン中！！"])}}
+                            </div>
+                            <div class="form-group">
+                                @if ($post->jump_img)
+                                    <p>
+                                        <img src="{{ asset('storage/image/jump_images/' . $post->jump_img) }}" alt="" class="img-fluid">
+                                    </p>
+                                @endif
+                                {!! Form::label('jump_img', 'バナー画像(600x100推奨)', ['class' => 'control-label']) !!}
+                                {!! Form::file('jump_img') !!}
                             </div>
                             <div class="card-body text-center">
                                 {!! Form::submit('変更', ['class' => 'btn btn-primary']) !!}

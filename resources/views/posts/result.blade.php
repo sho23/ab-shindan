@@ -14,7 +14,7 @@
             <div class="card mb-2 mx-2" style="width: 100%;">
                 <div class="card-body text-center">
                 <h3 class="card-title">{{ $post->jump_text }}</h3>
-                    <a href="{{ $post->jump_url }}" target="_blank"> <img src="https://placehold.jp/d1d143/ffffff/600x100.png?text=Go%20to%20other%20page" alt="" class="img-fluid"></a>
+                    <a href="{{ $post->jump_url }}" target="_blank"> <img src="{{ asset('storage/image/jump_images/' . $post->jump_img) }}" alt="" class="img-fluid"></a>
                 </div>
             </div>
         @else
