@@ -17,8 +17,16 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
+    <link rel="shortcut icon" href="{{ url('/') }}/dist/img/favicon.ico">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="{{ url('/') }}/dist/css/flat-ui.min.css" rel="stylesheet"><!-- Loading Flat UI -->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -44,15 +52,17 @@
                             <li><a class="nav-link" href="{{ route('login') }}">ログイン</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
                         @else
-                            <li><a class="btn btn-outline-primary" href="{{ action('PostsController@create') }}">新規追加</a></li>
-                            <li class="nav-item dropdown">
+                            <li><a class="btn btn-primary" href="{{ action('PostsController@create') }}">新規追加</a></li>
+                            <li class="nav-item dropdown ml-4">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }}
                                 </a>
+
+
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ action('PostsController@index') }}">マイページへ</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         ログアウト
@@ -73,5 +83,8 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ url('/') }}/dist/js/vendor/jquery.min.js"></script>
+    <script src="{{ url('/') }}/dist/js/flat-ui.min.js"></script>
+    <script src="{{ url('/') }}/assets/js/application.js"></script>
 </body>
 </html>

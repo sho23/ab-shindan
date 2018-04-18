@@ -3,13 +3,10 @@
 @section('content')
 <div id="wrap">
     <div class="container">
-        <div class="card mb-4 text-center" style="width: 100%;">
-            <div class="card-body">
-                <h3 class="card-title">{{ $post->title }}</h3>
-                <h5 class="card-text">{{ $post->detail }}</h5>
+        <div class="mb-4 text-center">
                 <img src="{{asset('image/image.php?pt=' . $post->title)}}" alt="" class="img-fluid">
+                <h5 class="card-text">{{ $post->detail }}</h5>
                 <p class="card-text"><small class="text-muted">{{ $count }}人が診断　平均点{{ $avg }}</small></p>
-            </div>
         </div>
         {!! Form::open(['route' => ['scores.store'], 'method' => 'post']) !!}
         {{Form::hidden('post_id', $post->id)}}
@@ -17,7 +14,7 @@
                 @foreach ($questions as $question)
                     <div class="card mb-2 mx-2" style="width: 100%;">
     					<div class="card-body text-center">
-    						<h4 class="card-title">{{ $question->order }}.  {{ $question->title }}</h4>
+                            <h6 class="card-title">{{ $question->order }}.  {{ $question->title }}</h6>
                             <div class="text-center">
                                 <label class="mr-4">{{ Form::radio('answer' . $question->order, 1, true)}}はい</label>
                                 <label>{{ Form::radio('answer' . $question->order, false)}}いいえ</label>
