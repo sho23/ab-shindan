@@ -11,7 +11,7 @@
             @foreach ($posts as $post)
                 <div class="card col-md-4 col-sm-6 col-xs-12">
 					<div class="card-body text-center">
-                        <img src="{{asset('image/image.php?pt=' . $post->title)}}" alt="" class="img-fluid mb-2">
+                        <a href="{{ url('/posts', ['post_id' => $post->id]) }}"><img src="{{asset('image/image.php?pt=' . $post->title)}}" alt="" class="img-fluid mb-2"></a>
 						<p class="card-text">{{ mb_strimwidth($post->detail, 0, 100, "...") }}</p>
 						<a href="{{ url('/posts', ['post_id' => $post->id]) }}" class="btn btn-primary">この診断で遊ぶ！</a>
 					</div>
