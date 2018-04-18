@@ -10,7 +10,7 @@ $bg = imagecolorallocate($im, 0, 0, 255);
 $textcolor = imagecolorallocate($im, 255, 255, 255);
 
 //フォントを取得
-$font = "../ipaexg.ttf";
+$font = "../mplus-1p-medium.ttf";
 $fontSize = 30;
 
 // 文字の中央揃え
