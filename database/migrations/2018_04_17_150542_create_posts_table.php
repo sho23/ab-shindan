@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('jump_url')->nullable();
             $table->string('jump_img')->nullable();
             $table->text('jump_text')->nullable();
+            $table->boolean('open_flag')->default(false);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->foreign('user_id')

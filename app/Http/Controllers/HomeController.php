@@ -26,6 +26,7 @@ class HomeController extends Controller
     {
         $posts = DB::table('posts')
                 ->orderBy('id', 'asc')
+                ->where('open_flag', true)
                 ->get();
         return view('home.index', ['posts' => $posts]);
     }
