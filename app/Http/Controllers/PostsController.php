@@ -45,6 +45,10 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'detail' => 'required',
+        ]);
         $post = new Post;
         $user = \Auth::user();
         $post->user_id = $user->id;
@@ -62,7 +66,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = DB::table('posts')->where('id', $id)->first();
+        $post = DB::table('posts')->where('id', $id)->where('open_flag', true)->first();
         $questions = DB::table('questions')
                 ->where('post_id', $id)
                 ->orderBy('order', 'asc')
@@ -77,7 +81,7 @@ class PostsController extends Controller
 
     public function result($id, $score)
     {
-        $post = DB::table('posts')->where('id', $id)->first();
+        $post = DB::table('posts')->where('id', $id)->where('open_flag', true)->first();
         $judgment = DB::table('judgments')->where('post_id', $id)->first();
         $ranges = [];
         if ($score <= 20) {
@@ -103,7 +107,10 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = DB::table('posts')->where('id', $id)->first();
-
+        $question = DB::table('questions')->where('post_id', $id)->first();
+        if (empty($question)) {
+            return redirect()->route('questions.create', $id);
+        }
         return view('posts.edit', ['post' => $post]);
     }
 
@@ -116,7 +123,15 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!$this->checkPostAuth($id)) {
+            return redirect()->route('posts.index')->with('faild', 'データの編集に失敗しました');
+        }
+
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->detail = $request->detail;
+        $post->save();
+        return redirect()->route('posts.index')->with('succeed', '編集が完了しました');
     }
 
     /**
@@ -130,5 +145,12 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $post->delete();
         return redirect()->route('posts.index');
+    }
+
+    public function checkPostAuth($postId)
+    {
+        $user = \Auth::user();
+        $post = DB::table('posts')->where('id', $postId)->where('user_id', $user->id)->first();
+        return !empty($post);
     }
 }

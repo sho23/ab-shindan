@@ -6,6 +6,15 @@
         <div class="page-header">
             <h3 class="text-center">{{ $user->name }}の作成した診断一覧</h3>
         </div>
+        @if (session('succeed'))
+            <div class="alert alert-success">
+                {{ session('succeed') }}
+            </div>
+        @elseif (session('faild'))
+            <div class="alert alert-danger">
+                {{ session('faild') }}
+            </div>
+        @endif
         <div class="row">
             @if (!$posts->isEmpty())
                 @foreach ($posts as $post)
@@ -13,7 +22,7 @@
     					<div class="card-body text-center">
     						<h4 class="card-title">{{ $post->title }}</h4>
     						<p class="card-text">{{ $post->detail }}</p>
-                            <a href="{{ url('/posts', ['post_id' => $post->id]) }}" class="btn btn-primary">編集</a>
+                            <a href="{{ action('PostsController@edit', $post->id) }}" class="btn btn-primary">編集</a>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">削除</button>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
