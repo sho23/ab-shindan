@@ -19,7 +19,7 @@
     					<div class="card-body text-center">
     						<h4 class="card-title">{{ $question->order }}.  {{ $question->title }}</h4>
                             <div class="text-center">
-                                <label class="mr-4">{{ Form::radio('answer' . $question->order, true)}}はい</label>
+                                <label class="mr-4">{{ Form::radio('answer' . $question->order, 1, true)}}はい</label>
                                 <label>{{ Form::radio('answer' . $question->order, false)}}いいえ</label>
                             </div>
     					</div>
