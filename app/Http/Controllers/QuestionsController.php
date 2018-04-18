@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Question;
+use App\Post;
 use App\Judgment;
 
 class QuestionsController extends Controller
@@ -41,6 +42,9 @@ class QuestionsController extends Controller
         $question = new Question;
         $questions = [];
         for ($i=1; $i <= 10; $i++) {
+            $this->validate($request, [
+               'question' . $i => 'required|max:255',
+            ]);
             $data = [];
             $data = [
                 'post_id' => $request->post_id,
@@ -54,6 +58,10 @@ class QuestionsController extends Controller
         DB::table('judgments')->insert(
             ['post_id' => $request->post_id]
         );
+        $post = Post::find($request->post_id);
+        $post->open_flag = true;
+        $post->save();
+
         return redirect()->route('posts.index');
     }
 
@@ -74,9 +82,11 @@ class QuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($postId)
     {
-        //
+        $user = \Auth::user();
+        $questions = DB::table('questions')->where('post_id', $postId)->get();
+        return view('questions.edit', compact('questions', 'postId'));
     }
 
     /**
@@ -86,9 +96,27 @@ class QuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $postId)
     {
-        //
+        $questions = DB::table('questions')->where('post_id', $postId)->get();
+
+        $qIdList = [];
+        foreach ($questions as $question) {
+            $qIdList[] = $question->id;
+        }
+
+        $questions = [];
+        foreach ($qIdList as $key => $qId) {
+            $this->validate($request, [
+               'question' . $qId => 'required|max:255',
+            ]);
+            $question = Question::find($qId);
+            $question->post_id =  $postId;
+            $question->title = $request->{'question'.$qId};
+            $question->order = $key +1;
+            $question->save();
+        }
+        return redirect()->route('questions.edit', $postId)->with('succeed', '編集が完了しました');
     }
 
     /**
