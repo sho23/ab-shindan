@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h3 class="card-title">{{ $post->title }}</h3>
                 <h5 class="card-text">{{ $post->detail }}</h5>
-                <img src="{{asset('image/image.php')}}" alt="" class="img-fluid">
+                <img src="{{asset('image/image.php?pt=' . $post->title)}}" alt="" class="img-fluid">
                 <p class="card-text"><small class="text-muted">{{ $count }}人が診断　平均点{{ $avg }}</small></p>
             </div>
         </div>
