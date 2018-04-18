@@ -5,14 +5,16 @@
     <div class="container">
         <div class="card mb-4 text-center" style="width: 100%;">
             <div class="card-body">
-                <h3 class="card-title">{{ $judgment->{"range" . $range} }}</h5>
-                <h5 class="card-text">{{ $judgment->{"range_text" . $range} }}</5>
+                <h3 class="card-title">{{ $judgment->{"range" . $range} }}</h3>
+                <h5 class="card-text">{{ $judgment->{"range_text" . $range} }}</h5>
+                <img src="https://placehold.jp/3d4070/ffffff/600x300.png" alt="" class="img-fluid mt-4">
             </div>
         </div>
         @if (isset($post->jump_url))
             <div class="card mb-2 mx-2" style="width: 100%;">
                 <div class="card-body text-center">
-                    <a href="{{ $post->jump_url }}" class="btn btn-primary" target="_blank">{{ $post->jump_text }}</a>
+                <h3 class="card-title">{{ $post->jump_text }}</h3>
+                    <a href="{{ $post->jump_url }}" target="_blank"> <img src="https://placehold.jp/d1d143/ffffff/600x100.png?text=Go%20to%20other%20page" alt="" class="img-fluid"></a>
                 </div>
             </div>
         @else
