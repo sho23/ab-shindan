@@ -11,7 +11,7 @@
             @foreach ($posts as $post)
                 <div class="card col-md-4 col-sm-6 col-xs-12">
 					<div class="card-body text-center">
-						<h4 class="card-title">{{ $post->title }}</h4>
+                        <img src="{{asset('image/image.php?pt=' . $post->title)}}" alt="" class="img-fluid mb-2">
 						<p class="card-text">{{ $post->detail }}</p>
 						<a href="{{ url('/posts', ['post_id' => $post->id]) }}" class="btn btn-primary">この診断で遊ぶ！</a>
 					</div>
