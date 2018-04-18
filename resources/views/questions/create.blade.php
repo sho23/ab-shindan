@@ -18,10 +18,10 @@
                 @for ($i=1; $i <= 10; $i++)
                     <div class="card mb-2 mx-2" style="width: 100%;">
                         <div class="card-body">
-                        <div class="form-group">
-                            <label for="question{{ $i }}">設問{{ $i }}.</label>
-                            <input type="text" class="form-control" id="question{{ $i }}" name="question{{ $i }}" placeholder="例) 行きつけのラーメン屋がある">
-                        </div>
+                            <div class="form-group">
+                                <label for="question{{ $i }}">設問{{ $i }}.</label>
+                                <input type="text" class="form-control" id="question{{ $i }}" name="question{{ $i }}" placeholder="例) 行きつけのラーメン屋がある">
+                            </div>
                         </div>
                     </div>
                 @endfor
