@@ -139,6 +139,7 @@ class PostsController extends Controller
         }
         $post->title = $request->title;
         $post->detail = $request->detail;
+        $post->key_color = $request->key_color;
         $post->jump_url = $request->jump_url;
         $post->jump_text = $request->jump_text;
         $post->save();

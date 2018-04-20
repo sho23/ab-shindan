@@ -4,7 +4,7 @@
 <div id="wrap">
     <div class="container">
         <div class="mb-4 text-center">
-                <img src="{{asset('image/image.php?pt=' . $post->title)}}" alt="" class="img-fluid">
+                <img src="{{asset('image/image.php?pt=' . $post->title . '&kc=' . $post->key_color)}}" alt="" class="img-fluid">
                 <h5 class="card-text">{{ $post->detail }}</h5>
                 <p class="card-text"><small class="text-muted">{{ $count }}人が診断　平均点{{ $avg }}</small></p>
         </div>

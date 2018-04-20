@@ -30,6 +30,12 @@
                                 {{Form::textarea('detail',$post->detail, ['id' => 'detail', 'class' => 'form-control'])}}
                             </div>
                             <div class="form-group">
+                                <p>テーマカラー</p>
+                                <label class="mr-4">{{ Form::radio('key_color', 'blue', $post->key_color == 'blue')}}　<img src="{{ asset('/image/bg-blue.png') }}" alt="" style="max-width:50px;"></label>
+                                <label class="mr-4">{{ Form::radio('key_color', 'yellow', $post->key_color == 'yellow')}}　<img src="{{ asset('/image/bg-yellow.png') }}" alt="" style="max-width:50px;"></label>
+                                <label class="mr-4">{{ Form::radio('key_color', 'green', $post->key_color == 'green')}}　<img src="{{ asset('/image/bg-green.png') }}" alt="" style="max-width:50px;"></label>
+                            </div>
+                            <div class="form-group">
                                 <label for="jump_url">バナーのURL</label>
                                 {{Form::text('jump_url',$post->jump_url, ['id' => 'jump_url', 'class' => 'form-control',  'placeholder' => "例) http://google.com/"])}}
                             </div>

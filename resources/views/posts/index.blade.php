@@ -20,7 +20,7 @@
                 @foreach ($posts as $post)
                     <div class="card col-md-4 col-sm-6 col-xs-12">
     					<div class="card-body text-center">
-                            <h4 class="card-title"> <a href="{{ action('PostsController@show', $post->id) }}">{{ $post->title }}</a></h4>
+                            <h4 class="card-title"> <a href="{{ action('PostsController@show', $post->id) }}" target="_blank">{{ $post->title }}</a></h4>
                             <p class="card-text">{{ mb_strimwidth($post->detail, 0, 100, "...") }}</p>
                             <a href="{{ action('PostsController@edit', $post->id) }}" class="btn btn-primary">編集</a>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">削除</button>

@@ -1,6 +1,7 @@
 <?php
 // GETで文字列取得
 $txt = mb_convert_encoding($_GET["pt"],"UTF-8","auto");
+$keyColor = mb_convert_encoding($_GET["kc"],"UTF-8","auto");
 
 $txt_arr = [];
 if (10 < mb_strlen($_GET["pt"])) {
@@ -9,7 +10,14 @@ if (10 < mb_strlen($_GET["pt"])) {
 }
 
 // 元画像
-$im = imagecreatefrompng('https://placehold.jp/3d4070/ffffff/420x300.png?text=%20');
+if ($keyColor == 'blue') {
+	$bgImg = 'bg-blue.png';
+} elseif ($keyColor == 'yellow') {
+	$bgImg = 'bg-yellow.png';
+} else {
+	$bgImg = 'bg-green.png';
+}
+$im = imagecreatefrompng($bgImg);
 
 // 白色の背景と青色のテキスト
 $bg = imagecolorallocate($im, 0, 0, 255);
