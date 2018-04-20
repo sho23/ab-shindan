@@ -6,7 +6,7 @@
         <div class="card mb-4 text-center" style="width: 100%;">
             <div class="card-body">
                 <h3 class="card-title">{{ $judgment->{"range" . $range} }}</h3>
-                <h5 class="card-text">{{ $judgment->{"range_text" . $range} }}</h5>
+                <p class="card-text">{{ $judgment->{"range_text" . $range} }}</p>
                 @if ($judgment->{'range_img'.$range})
                     <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img' . $range}) }}" alt="" class="img-fluid mt-4">
                 @endif

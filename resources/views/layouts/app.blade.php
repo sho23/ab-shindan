@@ -84,7 +84,5 @@
         </main>
     </div>
     <script src="{{ url('/') }}/dist/js/vendor/jquery.min.js"></script>
-    <script src="{{ url('/') }}/dist/js/flat-ui.min.js"></script>
-    <script src="{{ url('/') }}/assets/js/application.js"></script>
 </body>
 </html>
