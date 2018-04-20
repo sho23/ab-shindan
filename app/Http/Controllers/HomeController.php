@@ -27,7 +27,7 @@ class HomeController extends Controller
         $posts = DB::table('posts')
                 ->orderBy('id', 'asc')
                 ->where('open_flag', true)
-                ->get();
+                ->paginate(15);
         return view('home.index', ['posts' => $posts]);
     }
 }
