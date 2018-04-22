@@ -14,6 +14,8 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index');
+Route::get('/terms', 'HomeController@terms')->name('home.terms');
+Route::get('/privacy', 'HomeController@privacy')->name('home.privacy');
 Route::resource('posts', 'PostsController');
 Route::resource('questions', 'QuestionsController');
 Route::resource('judgments', 'JudgmentsController');

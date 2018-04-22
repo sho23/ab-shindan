@@ -83,6 +83,17 @@
             @yield('content')
         </main>
     </div>
+    <footer class="footer py-4" style="background:#f5f5f5;">
+    <div class="container text-center">
+        <div class="row mt4">
+            <ul class="list-inline mx-auto">
+                <li class="list-inline-item"><small><a href="{{ action('HomeController@terms') }}">利用規約</a></small></li>
+                <li class="list-inline-item"><small><a href="{{ action('HomeController@privacy') }}">プライバシーポリシー</a></small></li>
+            </ul>
+        </div>
+        <small class="text-muted">© 2017 AB診断メーカー</small>
+    </div>
+    </footer>
     <script src="{{ url('/') }}/dist/js/vendor/jquery.min.js"></script>
     <script type="text/javascript">
         $(function(){
