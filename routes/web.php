@@ -22,3 +22,6 @@ Route::resource('judgments', 'JudgmentsController');
 Route::post('scores/store', 'ScoresController@store')->name('scores.store');
 Route::get('posts/{post}/result/{score}', 'PostsController@result')->name('posts.result');
 Route::get('questions/{post_id}/create', 'QuestionsController@create')->name('questions.create');
+
+Route::get('/login/twitter', 'Auth\SocialController@getTwitterAuth');
+Route::get('/login/twitter/callback', 'Auth\SocialController@getTwitterAuthCallback');

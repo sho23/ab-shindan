@@ -3,10 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 mb-4">
             <div class="card">
                 <div class="card-header">ログイン</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -61,6 +60,18 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">ソーシャルログイン</div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <!-- <a class="btn btn-default btn-block" href="/login/faceboeok" style="background:#4867ad;">facebook</a> -->
+                            <a class="btn btn-default btn-block" href="/login/twitter" style="background:#5babea;">twitter</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
