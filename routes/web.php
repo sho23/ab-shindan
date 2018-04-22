@@ -25,3 +25,6 @@ Route::get('questions/{post_id}/create', 'QuestionsController@create')->name('qu
 
 Route::get('/login/twitter', 'Auth\SocialController@getTwitterAuth');
 Route::get('/login/twitter/callback', 'Auth\SocialController@getTwitterAuthCallback');
+
+Route::get('/login/facebook', 'Auth\SocialController@getFacebookAuth');
+Route::get('/login/facebook/callback', 'Auth\SocialController@getFacebookAuthCallback');

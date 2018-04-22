@@ -32,22 +32,25 @@ class SocialController extends Controller
         return redirect($this->redirectTo);
     }
 
-    // facebook
 
-    // public function getFacebookAuth()
-    // {
-    //     return Socialite::driver('facebook')->redirect();
-    // }
+    public function getFacebookAuth()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
 
-    // public function getFacebookAuthCallback()
-    // {
-    //     $facebookUser = Socialite::driver('facebook')->stateless()->user(); // (1)
+    public function getFacebookAuthCallback()
+    {
+        try {
+            $facebookUser = Socialite::driver('facebook')->stateless()->user();
+        } catch (Exception $e) {
+            return redirect('login/facebook');
+        }
 
-    //     $user = $this->createOrGetUser($facebookUser, 'facebook');
-    //     Auth::login($user, true);
+        $user = $this->createOrGetUser($facebookUser, 'facebook');
+        Auth::login($user, true);
 
-    //     return redirect($this->redirectTo);
-    // }
+        return redirect($this->redirectTo);
+    }
 
     private function createOrGetUser($providerUser, $provider)
     {
