@@ -84,5 +84,17 @@
         </main>
     </div>
     <script src="{{ url('/') }}/dist/js/vendor/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('[name=number]').change(function() {
+                var val = $('[name=number]').val();
+                if (val == 1) {
+                    $(".extr").css('display', 'none');
+                } else {
+                    $(".extr").css('display', 'inherit');
+                }
+            }).change();
+        });
+    </script>
 </body>
 </html>

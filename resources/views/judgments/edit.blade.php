@@ -41,8 +41,11 @@
                                                 </p>
                                             @endif
                                             {!! Form::label('range_img' . $order, '診断結果画像(600x100推奨)', ['class' => 'control-label']) !!}
-                                            <br>
-                                            {!! Form::file('range_img' . $order) !!}
+                                            {!! Form::file('range_img' . $order, ['style' => 'display:none;']) !!}
+                                            <div class="input-group">
+                                                <input type="text" id="photoCover{{$order}}" class="form-control" placeholder="ファイルを選択してください">
+                                                <span class="input-group-btn"><button type="button" class="btn btn-info" onclick="$('input[id=range_img{{$order}}]').click();">参照</button></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -57,4 +60,21 @@
         {!! Form::close() !!}
     </div>
 </div>
+<script>
+    $('input[id=range_img1]').change(function() {
+        $('#photoCover1').val($(this).val());
+    });
+    $('input[id=range_img2]').change(function() {
+        $('#photoCover2').val($(this).val());
+    });
+    $('input[id=range_img3]').change(function() {
+        $('#photoCover3').val($(this).val());
+    });
+    $('input[id=range_img4]').change(function() {
+        $('#photoCover4').val($(this).val());
+    });
+    $('input[id=range_img5]').change(function() {
+        $('#photoCover5').val($(this).val());
+    });
+</script>
 @endsection
