@@ -84,13 +84,13 @@ class PostsController extends Controller
         $post = DB::table('posts')->where('id', $id)->where('open_flag', true)->first();
         $judgment = DB::table('judgments')->where('post_id', $id)->first();
         $ranges = [];
-        if ($score <= 20) {
+        if ($score <= 10) {
             $range = 5;
-        } elseif ($score > 20 && $score <= 40) {
+        } elseif ($score > 10 && $score <= 20) {
             $range = 4;
-        } elseif ($score > 40 && $score <= 60) {
+        } elseif ($score > 20 && $score <= 30) {
             $range = 3;
-        } elseif ($score > 60 && $score <= 80) {
+        } elseif ($score > 30 && $score <= 40) {
             $range = 2;
         } else {
             $range = 1;

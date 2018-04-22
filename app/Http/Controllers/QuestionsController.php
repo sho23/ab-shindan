@@ -41,7 +41,8 @@ class QuestionsController extends Controller
     {
         $question = new Question;
         $questions = [];
-        for ($i=1; $i <= 10; $i++) {
+        $num = intval($request->number) === 1 ? 5 : 10;
+        for ($i=1; $i <= $num; $i++) {
             $this->validate($request, [
                'question' . $i => 'required|max:255',
             ]);

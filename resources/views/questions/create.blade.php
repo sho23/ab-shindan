@@ -15,8 +15,19 @@
         {!! Form::open(['route' => ['questions.store'], 'method' => 'post']) !!}
         {{Form::hidden('post_id', $post->id)}}
             <div class="row">
+                <div class="card mb-2 mx-2" style="width: 100%;">
+                    <div class="card-body">
+                            <div class="form-group">
+                                <label for="number">問題数</label>
+                                    <select class="form-control" id="number" name="number">
+                                        <option value="1" selected="selected">5問</option>
+                                        <option value="2">10問</option>
+                                    </select>
+                            </div>
+                    </div>
+                </div>
                 @for ($i=1; $i <= 10; $i++)
-                    <div class="card mb-2 mx-2" style="width: 100%;">
+                    <div class="card mb-2 mx-2 <?php  if ($i > 5) { echo 'extr';}?>" style="width: 100%;">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="question{{ $i }}">設問{{ $i }}.</label>

@@ -50,7 +50,11 @@
                                     </p>
                                 @endif
                                 {!! Form::label('jump_img', 'バナー画像(600x100推奨)', ['class' => 'control-label']) !!}
-                                {!! Form::file('jump_img') !!}
+                                {!! Form::file('jump_img', ['style' => 'display:none;']) !!}
+                                <div class="input-group">
+                                  <input type="text" id="photoCover" class="form-control" placeholder="ファイルを選択してください">
+                                  <span class="input-group-btn"><button type="button" class="btn btn-info" onclick="$('input[id=jump_img]').click();">Browse</button></span>
+                                </div>
                             </div>
                             <div class="card-body text-center">
                                 {!! Form::submit('変更', ['class' => 'btn btn-primary']) !!}
@@ -62,4 +66,9 @@
         {!! Form::close() !!}
     </div>
 </div>
+<script>
+    $('input[id=jump_img]').change(function() {
+        $('#photoCover').val($(this).val());
+    });
+</script>
 @endsection

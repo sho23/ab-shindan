@@ -26,8 +26,19 @@
                                     {{ session('succeed') }}
                                 </div>
                             @endif
-                            @foreach ($questions as $quesiton)
-                                <div class="card mb-2 mx-2" style="width: 100%;">
+                            <div class="card mb-2 mx-2" style="width: 100%; display:none;">
+                                <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="number">問題数</label>
+                                                <select class="form-control" id="number" name="number">
+                                                    <option value="1" {{ count($questions) <= 5 ? 'selected' : '' }}>5問</option>
+                                                    <option value="2" {{ count($questions) > 5 ? 'selected' : '' }}>10問</option>
+                                                </select>
+                                        </div>
+                                </div>
+                            </div>
+                            @foreach ($questions as $key => $quesiton)
+                                <div class="card mb-2 mx-2 <?php  if ($key > 4) { echo 'extr';}?>" style="width: 100%;">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="question{{ $quesiton->order }}">設問{{ $quesiton->order }}.</label>
