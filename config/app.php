@@ -164,6 +164,11 @@ return [
          * For Form...
          */
         Collective\Html\HtmlServiceProvider::class,
+
+        /*
+         * For SNS(Twitter) Login
+         */
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -215,6 +220,7 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

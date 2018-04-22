@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['index']);
+        $this->middleware('auth')->except(['index', 'terms', 'privacy']);
     }
 
     /**
@@ -29,5 +29,15 @@ class HomeController extends Controller
                 ->where('open_flag', true)
                 ->paginate(15);
         return view('home.index', ['posts' => $posts]);
+    }
+
+    public function terms()
+    {
+        return view('home.terms');
+    }
+
+    public function privacy()
+    {
+        return view('home.privacy');
     }
 }
