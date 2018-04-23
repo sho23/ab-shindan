@@ -44,6 +44,13 @@
                                             <label for="question{{ $quesiton->order }}">設問{{ $quesiton->order }}.</label>
                                             {{Form::text('question' . $quesiton->id, $quesiton->title, ['id' => 'question' . $quesiton->order, 'class' => 'form-control'])}}
                                         </div>
+                                        <div class="form-group">
+                                            <small>設問{{ $quesiton->order }}.のポイント</small>
+                                            <div>
+                                                <label class="mr-4">{{ Form::radio('invert_flag' . $quesiton->id, 0, !$quesiton->invert_flag)}}「はい」に10ポイント</label>
+                                                <label class="mr-4">{{ Form::radio('invert_flag' . $quesiton->id, 1, $quesiton->invert_flag)}}「いいえ」に10ポイント</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

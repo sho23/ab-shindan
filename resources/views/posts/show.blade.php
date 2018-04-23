@@ -10,7 +10,6 @@
         </div>
         {!! Form::open(['route' => ['scores.store'], 'method' => 'post']) !!}
         {{Form::hidden('post_id', $post->id)}}
-        {{Form::hidden('number', count($questions)) }}
             <div class="row">
                 @foreach ($questions as $question)
                     <div class="card mb-2 mx-2" style="width: 100%;">

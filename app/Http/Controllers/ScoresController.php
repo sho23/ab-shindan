@@ -3,21 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Score;
 
 class ScoresController extends Controller
 {
 	public function store(Request $request) {
-        $qNum = $request->number;
-        $score = new Score;
+        $questions = DB::table('questions')->where('post_id', $request->post_id)->get();
+
         $sum = 0;
-        for ($i=1; $i <= $qNum; $i++) {
-		if ($request->{'answer'.$i} == 1) {
-        		$sum++;
-        	}
+        foreach ($questions as $key => $question) {
+            $i = $key + 1;
+            if ($question->invert_flag) {
+                if ($request->{'answer'.$i} != 1) {
+                    $sum++;
+                }
+            } else {
+                if ($request->{'answer'.$i} == 1) {
+                    $sum++;
+                }
+            }
         }
+        $score = new Score;
         $score->post_id = $request->post_id;
-        if (intval($qNum) === 5) {
+        if (count($questions) === 5) {
             $score->point = $sum * 10;
         } else {
             $score->point = $sum * 5;

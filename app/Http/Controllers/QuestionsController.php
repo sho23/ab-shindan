@@ -50,6 +50,7 @@ class QuestionsController extends Controller
             $data = [
                 'post_id' => $request->post_id,
                 'title' => $request->{'question'.$i},
+                'invert_flag' => $request->{'invert_flag'.$i},
                 'order' => $i
             ];
             $questions[] = $data;
@@ -114,6 +115,7 @@ class QuestionsController extends Controller
             $question = Question::find($qId);
             $question->post_id =  $postId;
             $question->title = $request->{'question'.$qId};
+            $question->invert_flag = $request->{'invert_flag'.$qId};
             $question->order = $key +1;
             $question->save();
         }

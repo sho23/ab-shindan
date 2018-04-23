@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('post_id')->unsigned();
             $table->string('title');
             $table->integer('order');
+            $table->boolean('invert_flag')->default(false);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->foreign('post_id')

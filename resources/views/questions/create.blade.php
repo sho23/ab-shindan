@@ -33,6 +33,13 @@
                                 <label for="question{{ $i }}">設問{{ $i }}.</label>
                                 <input type="text" class="form-control" id="question{{ $i }}" name="question{{ $i }}" placeholder="例) 行きつけのラーメン屋がある">
                             </div>
+                            <div class="form-group">
+                                <small>設問{{ $i }}.のポイント</small>
+                                <div>
+                                    <label class="mr-4">{{ Form::radio('invert_flag' . $i, 0, true)}}「はい」に10ポイント</label>
+                                    <label class="mr-4">{{ Form::radio('invert_flag' . $i, 1, false)}}「いいえ」に10ポイント</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endfor
