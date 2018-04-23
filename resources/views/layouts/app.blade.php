@@ -9,13 +9,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="description" content="<?php echo $__env->yieldContent('detail') !== '' ? $__env->yieldContent('detail') : 'おもしろAB診断投稿サイトです。ログインすると「診断の作成/編集/削除」ができるようになります。'; ?>">
-    <meta property="og:title"       content="<?php echo $__env->yieldContent('title') !== '' ? $__env->yieldContent('title') : 'AB診断メーカー'; ?>">
+    <meta property="og:title"       content="AB診断メーカー">
+    <meta property="og:site_name"   content="AB診断メーカー">
     <meta property="og:description" content="<?php echo $__env->yieldContent('detail') !== '' ? $__env->yieldContent('detail') : 'おもしろAB診断投稿サイトです。ログインすると「診断の作成/編集/削除」ができるようになります。'; ?>">
     <meta property="og:url"         content="<?php echo $__env->yieldContent('url') !== '' ? $__env->yieldContent('url') : url('/'); ?>">
-    <meta name="twitter:card"       content="<?php echo $__env->yieldContent('detail') !== '' ? $__env->yieldContent('detail') : 'おもしろAB診断投稿サイトです。ログインすると「診断の作成/編集/削除」ができるようになります。'; ?>">
-
-    <!-- 画像を載せたい場合 -->
+    <meta property="og:type"        content="website">
     <meta property="og:image"       content="<?php echo $__env->yieldContent('ogimg') !== '' ? $__env->yieldContent('ogimg') : asset('storage/image/jump_images/bg-yellow.png'); ?>">
+
+    <meta name="twitter:image"      content="<?php echo $__env->yieldContent('ogimg') !== '' ? $__env->yieldContent('ogimg') : asset('storage/image/jump_images/bg-yellow.png'); ?>">
+    <meta name="twitter:card"       content="summary_large_image">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
