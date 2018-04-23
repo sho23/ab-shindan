@@ -5,8 +5,8 @@
     <div class="container">
         <div class="card mb-4 text-center" style="width: 100%;">
             <div class="card-body">
-                <h3 class="card-title">質問編集</h5>
-                <h5 class="card-text">質問の編集を行います</5>
+                <h5 class="card-title">質問編集</h5>
+                <p class="card-text">質問の編集を行います</p>
             </div>
         </div>
         {!! Form::open(['route' => ['questions.update', $postId], 'method' => 'put']) !!}

@@ -16,9 +16,12 @@
             </div>
         </div>
         @if (isset($post->jump_url))
+            <div class="row text-center mb-4">
+               <img src="{{ asset('/image/arrow.jpeg') }}" class="mx-auto" alt="" width="50px;" height="50px;">
+            </div>
             <div class="card mb-2 mx-2" style="width: 100%;">
                 <div class="card-body text-center">
-                <h3 class="card-title">{{ $post->jump_text }}</h3>
+                <h6 class="card-title">{{ $post->jump_text }}</h6>
                     <a href="{{ $post->jump_url }}" target="_blank"> <img src="{{ asset('storage/image/jump_images/' . $post->jump_img) }}" alt="" class="img-fluid"></a>
                 </div>
             </div>
@@ -26,6 +29,11 @@
         <div class="card mb-2 mx-2" style="width: 100%;">
             <div class="card-body text-center">
                 <a href="{{ action('HomeController@index') }}" class="btn btn-primary">診断一覧へ</a>
+            </div>
+            <div class="text-center snsbtn-box animate-box">
+                <a href="http://twitter.com/share?url=<?php echo url('/posts/' . $post->id); ?>&text={{ $post->title }}&hashtags=AB診断メーカー, {{ $post->title }}" class="snsbtn tw"><i class="icon-twitter2"></i>Twitter</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo url('/posts/' . $post->id); ?>" class="snsbtn fb"><i class="icon-facebook2"></i>Facebook</a>
+<!--                        <a href="http://line.me/R/msg/text/?http://blond.boo.jp/ambitions/" class="snsbtn">LINE</a> -->
             </div>
         </div>
         @endif

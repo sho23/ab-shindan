@@ -100,7 +100,7 @@
                     <li class="list-inline-item"><small><a href="{{ action('HomeController@terms') }}">利用規約</a></small></li>
                     <li class="list-inline-item"><small><a href="{{ action('HomeController@privacy') }}">プライバシーポリシー</a></small></li>
                 </ul>
-            <small class="text-muted">© 2017 AB診断メーカー</small>
+            <small class="text-muted">© 2018 AB診断メーカー</small>
         </div>
     </footer>
     <script src="{{ url('/') }}/dist/js/vendor/jquery.min.js"></script>

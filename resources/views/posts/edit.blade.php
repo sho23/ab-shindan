@@ -5,8 +5,8 @@
     <div class="container">
         <div class="card mb-4 text-center" style="width: 100%;">
             <div class="card-body">
-                <h3 class="card-title">診断編集</h5>
-                <h5 class="card-text">診断の編集を行います</5>
+                <h5 class="card-title">診断編集</h5>
+                <p class="card-text">診断の編集を行います</p>
             </div>
         </div>
         {!! Form::open(['route' => ['posts.update', $post->id], 'method' => 'put', 'files' => true]) !!}
@@ -49,7 +49,7 @@
                                         <img src="{{ asset('storage/image/jump_images/' . $post->jump_img) }}" alt="" class="img-fluid">
                                     </p>
                                 @endif
-                                {!! Form::label('jump_img', 'バナー画像(600x100推奨)', ['class' => 'control-label']) !!}
+                                {!! Form::label('jump_img', 'バナー画像(420x300推奨)', ['class' => 'control-label']) !!}
                                 {!! Form::file('jump_img', ['style' => 'display:none;']) !!}
                                 <div class="input-group">
                                   <input type="text" id="photoCover" class="form-control" placeholder="ファイルを選択してください">

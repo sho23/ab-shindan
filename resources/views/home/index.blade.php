@@ -1,11 +1,10 @@
 @extends('layouts.app')
-@section('title', 'AB診断')
+@section('title', 'AB診断メーカー')
 @section('content')
 <div id="wrap">
     <div class="container">
-        <div class="page-header">
-            <p class="text-left"></p>
-            <h3 class="text-center">AB診断の一覧</h3>
+        <div class="mb-4">
+            <h4 class="text-center">みんなが作った診断</h4>
         </div>
         <div class="row">
             @foreach ($posts as $post)

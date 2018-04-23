@@ -5,8 +5,8 @@
     <div class="container">
         <div class="card mb-4 text-center" style="width: 100%;">
             <div class="card-body">
-                <h3 class="card-title">診断結果編集</h5>
-                <h5 class="card-text">診断結果の編集を行います</5>
+                <h5 class="card-title">診断結果編集</h5>
+                <p class="card-text">診断結果の編集を行います</p>
             </div>
         </div>
         {!! Form::open(['route' => ['judgments.update', $judgment->id], 'method' => 'put', 'files' => true]) !!}
@@ -21,7 +21,7 @@
                             </ul>
                         </div>
                         <div class="col-md-9">
-                            <?php $rangeList = ['10問~9問回答が「はい」のとき', '8問~7問回答が「はい」のとき', '6問~5問回答が「はい」のとき', '4問~3問回答が「はい」のとき', '2問~0問回答が「はい」のとき']; ?>
+                            <?php $rangeList = ['結果が50~41ポイントのとき', '結果が40~31ポイントのとき', '結果が30~21ポイントのとき', '結果が20~11ポイントのとき', '結果が10~0ポイントのとき']; ?>
                             @foreach ($rangeList as $key => $range)
                                 <?php $order = $key + 1; ?>
                                 <div class="card mb-2 mx-2" style="width: 100%;">
@@ -40,7 +40,7 @@
                                                     <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img'.$order}) }}" alt="" class="img-fluid">
                                                 </p>
                                             @endif
-                                            {!! Form::label('range_img' . $order, '診断結果画像(600x100推奨)', ['class' => 'control-label']) !!}
+                                            {!! Form::label('range_img' . $order, '診断結果画像(420x300推奨)', ['class' => 'control-label']) !!}
                                             {!! Form::file('range_img' . $order, ['style' => 'display:none;']) !!}
                                             <div class="input-group">
                                                 <input type="text" id="photoCover{{$order}}" class="form-control" placeholder="ファイルを選択してください">
