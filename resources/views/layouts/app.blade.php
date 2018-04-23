@@ -14,9 +14,9 @@
     <meta property="og:description" content="<?php echo $__env->yieldContent('detail') !== '' ? $__env->yieldContent('detail') : 'おもしろAB診断投稿サイトです。ログインすると「診断の作成/編集/削除」ができるようになります。'; ?>">
     <meta property="og:url"         content="<?php echo $__env->yieldContent('url') !== '' ? $__env->yieldContent('url') : url('/'); ?>">
     <meta property="og:type"        content="website">
-    <meta property="og:image"       content="<?php echo $__env->yieldContent('ogimg') !== '' ? url('/') . $__env->yieldContent('ogimg') : asset('image/bg-yellow.png'); ?>">
+    <meta property="og:image"       content="<?php echo $__env->yieldContent('ogimg') !== '' ? url('/') . '/' . $__env->yieldContent('ogimg') : asset('image/bg-yellow.png'); ?>">
 
-    <meta name="twitter:image"      content="<?php echo $__env->yieldContent('ogimg') !== '' ? url('/') . $__env->yieldContent('ogimg') : asset('image/bg-yellow.png'); ?>">
+    <meta name="twitter:image"      content="<?php echo $__env->yieldContent('ogimg') !== '' ? url('/') . '/' . $__env->yieldContent('ogimg') : asset('image/bg-yellow.png'); ?>">
     <meta name="twitter:card"       content="summary_large_image">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
