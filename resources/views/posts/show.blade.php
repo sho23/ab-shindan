@@ -1,5 +1,8 @@
 @extends('layouts.app')
-@section('title', 'AB診断')
+@section('title', $post->title)
+@section('detail', $post->detail)
+@section('url', url("/posts/{$post->id}"))
+@section('ogimg', 'image/image.php?pt=' . $post->title . '&kc=' . $post->key_color)
 @section('content')
 <div id="wrap">
     <div class="container">

@@ -8,6 +8,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <meta name="description" content="<?php echo $__env->yieldContent('detail') !== '' ? $__env->yieldContent('detail') : 'おもしろAB診断投稿サイトです。ログインすると「診断の作成/編集/削除」ができるようになります。'; ?>">
+    <meta property="og:title"       content="<?php echo $__env->yieldContent('title') !== '' ? $__env->yieldContent('title') : 'AB診断メーカー'; ?>">
+    <meta property="og:description" content="<?php echo $__env->yieldContent('detail') !== '' ? $__env->yieldContent('detail') : 'おもしろAB診断投稿サイトです。ログインすると「診断の作成/編集/削除」ができるようになります。'; ?>">
+    <meta property="og:url"         content="<?php echo $__env->yieldContent('url') !== '' ? $__env->yieldContent('url') : url('/'); ?>">
+    <meta name="twitter:card"       content="<?php echo $__env->yieldContent('detail') !== '' ? $__env->yieldContent('detail') : 'おもしろAB診断投稿サイトです。ログインすると「診断の作成/編集/削除」ができるようになります。'; ?>">
+
+    <!-- 画像を載せたい場合 -->
+    <meta property="og:image"       content="<?php echo $__env->yieldContent('ogimg') !== '' ? $__env->yieldContent('ogimg') : asset('storage/image/jump_images/bg-yellow.png'); ?>">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -89,7 +98,7 @@
                     <li class="list-inline-item"><small><a href="{{ action('HomeController@terms') }}">利用規約</a></small></li>
                     <li class="list-inline-item"><small><a href="{{ action('HomeController@privacy') }}">プライバシーポリシー</a></small></li>
                 </ul>
-            <span><small class="text-muted">© 2017 AB診断メーカー</small></span>
+            <small class="text-muted">© 2017 AB診断メーカー</small>
         </div>
     </footer>
     <script src="{{ url('/') }}/dist/js/vendor/jquery.min.js"></script>
