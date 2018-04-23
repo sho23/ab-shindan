@@ -147,6 +147,13 @@ class PostsController extends Controller
         return redirect()->route('posts.index')->with('succeed', '編集が完了しました');
     }
 
+    public function complete($id)
+    {
+        $post = DB::table('posts')->where('id', $id)->first();
+        return view('posts.complete', ['post' => $post]);
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *

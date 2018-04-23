@@ -64,7 +64,7 @@ class QuestionsController extends Controller
         $post->open_flag = true;
         $post->save();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.complete', $request->post_id);
     }
 
     /**
