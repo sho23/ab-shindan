@@ -115,6 +115,21 @@
                     $(".variable-point").text('5');
                 }
             }).change();
+
+            imgType = $('[name=img_type]:checked').val();
+            if (imgType != 0) {
+                $(".result-img").css('display', 'none');
+            } else {
+                $(".result-img").css('display', 'inherit');
+            }
+            $('[name=img_type]:radio').change(function() {
+                var val = $(this).val();
+                if (val != 0) {
+                    $(".result-img").css('display', 'none');
+                } else {
+                    $(".result-img").css('display', 'inherit');
+                }
+            });
         });
     </script>
 </body>

@@ -73,7 +73,7 @@ class JudgmentsController extends Controller
     {
         $judgment = Judgment::find($id);
 
-        for ($i=1; $i <= 5; $i++) {
+        for ($i=1; $i <= 6; $i++) {
             $this->validate($request, [
                 'range' . $i => 'required|max:255',
                 'range_text' . $i => 'required',
@@ -92,11 +92,14 @@ class JudgmentsController extends Controller
         $judgment->range3 = $request->range3;
         $judgment->range4 = $request->range4;
         $judgment->range5 = $request->range5;
+        $judgment->range6 = $request->range6;
         $judgment->range_text1 = $request->range_text1;
         $judgment->range_text2 = $request->range_text2;
         $judgment->range_text3 = $request->range_text3;
         $judgment->range_text4 = $request->range_text4;
         $judgment->range_text5 = $request->range_text5;
+        $judgment->range_text6 = $request->range_text6;
+        $judgment->img_type = $request->img_type;
         $judgment->save();
 
         return redirect()->route('judgments.edit', $judgment->post_id)->with('succeed', '編集が完了しました');

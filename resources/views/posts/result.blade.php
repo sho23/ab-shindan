@@ -12,11 +12,13 @@
                 <p class="card-text">{{ $judgment->{"range_text" . $range} }}</p>
                 @if ($judgment->{'range_img'.$range})
                     <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img' . $range}) }}" alt="" class="img-fluid mt-4">
+                @else
+                    <img src="{{ asset('image/' . $resultImg) }}" alt="" class="img-fluid mt-4">
                 @endif
             </div>
             <div class="row mx-auto mb-4">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo url('/posts/' . $post->id); ?>" class="btn btn-default mr-4" style="background:#4867ad;">facebookでシェア</a>
-                <a href="http://twitter.com/share?url=<?php echo url('/posts/' . $post->id); ?>&text={{ $post->title }}&hashtags=AB診断メーカー, {{ $post->title }}" class="btn btn-default mr-4" style="background:#5babea;">twitterでシェア</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo url('/posts/' . $post->id); ?>" class="btn btn-default mx-2" style="background:#4867ad;">facebookでシェア</a>
+                <a href="http://twitter.com/share?url=<?php echo url('/posts/' . $post->id); ?>&text={{ $post->title }}&hashtags=AB診断メーカー, {{ $post->title }}" class="btn btn-default mx-2" style="background:#5babea;">twitterでシェア</a>
             </div>
         </div>
         @if (isset($post->jump_url))

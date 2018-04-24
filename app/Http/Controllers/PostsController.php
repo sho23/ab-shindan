@@ -84,7 +84,9 @@ class PostsController extends Controller
         $post = DB::table('posts')->where('id', $id)->where('open_flag', true)->first();
         $judgment = DB::table('judgments')->where('post_id', $id)->first();
         $ranges = [];
-        if ($score <= 10) {
+        if ($score == 0) {
+            $range = 6;
+        } elseif ($score > 0 && $score <= 10) {
             $range = 5;
         } elseif ($score > 10 && $score <= 20) {
             $range = 4;
@@ -95,7 +97,16 @@ class PostsController extends Controller
         } else {
             $range = 1;
         }
-        return view('posts.result', compact('post', 'judgment', 'range'));
+        if ($judgment->img_type == 1) {
+            $numImgs = ['num50.png', 'num40.png', 'num30.png', 'num20.png', 'num10.png', 'num10.png'];
+            $resultImg = $numImgs[$range -1];
+        } elseif ($judgment->img_type == 2) {
+            $starImgs = ['star5.png', 'star4.png', 'star3.png', 'star2.png', 'star1.png', 'star1.png'];
+            $resultImg = $starImgs[$range -1];
+        } else {
+            $resultImg = $judgment->{'range_img'.$range};
+        }
+        return view('posts.result', compact('post', 'judgment', 'range', 'resultImg'));
     }
 
     /**

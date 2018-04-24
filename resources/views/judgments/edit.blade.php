@@ -30,6 +30,16 @@
                                     </ul>
                                 </div>
                             @endif
+                            <div class="card mb-2 mx-2" style="width: 100%;">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <p>画像タイプ</p>
+                                        <label class="mr-4">{{ Form::radio('img_type', 1, $judgment->img_type == 1)}}　<img src="{{ asset('/image/num50.png') }}" alt="" style="max-width:50px;"> ポイント</label>
+                                        <label class="mr-4">{{ Form::radio('img_type', 2, $judgment->img_type == 2)}}　<img src="{{ asset('/image/star5.png') }}" alt="" style="max-width:50px;"> 星</label>
+                                        <label class="mr-4">{{ Form::radio('img_type', 0, $judgment->img_type == 0)}}　個別に指定する</label>
+                                    </div>
+                                </div>
+                            </div>
                             <?php $rangeList = ['結果が50~41ポイントのとき', '結果が40~31ポイントのとき', '結果が30~21ポイントのとき', '結果が20~11ポイントのとき', '結果が10~0ポイントのとき']; ?>
                             @foreach ($rangeList as $key => $range)
                                 <?php $order = $key + 1; ?>
@@ -43,7 +53,7 @@
                                             <label for="range_text{{$order}}">結果説明{{ $order }}</label>
                                             {{Form::text('range_text' . $order, $judgment->{'range_text'.$order}, ['id' => 'range_text' . $order, 'class' => 'form-control'])}}
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group result-img">
                                             @if ($judgment->{'range_img'.$order})
                                                 <p>
                                                     <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img'.$order}) }}" alt="" class="img-fluid">
