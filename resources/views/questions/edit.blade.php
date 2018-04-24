@@ -22,13 +22,7 @@
                         </div>
                         <div class="col-md-9">
                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                                <div class="alert alert-danger">質問は必須です。255文字以内で入力してください。</div>
                             @endif
                             @if (session('succeed'))
                                 <div class="alert alert-success">
