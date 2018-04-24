@@ -9,7 +9,7 @@
         <div class="mb-4 text-center">
                 <img src="{{asset('image/image.php?pt=' . $post->title . '&kc=' . $post->key_color)}}" alt="" class="img-fluid">
                 <h5 class="card-text">{{ $post->detail }}</h5>
-                <p class="card-text"><small class="text-muted">{{ $count }}人が診断　平均点{{ $avg }}</small></p>
+                <p class="card-text"><small class="text-muted">{{ $count }}人が診断　平均点{{ $avg }}/50</small></p>
         </div>
         {!! Form::open(['route' => ['scores.store'], 'method' => 'post']) !!}
         {{Form::hidden('post_id', $post->id)}}
