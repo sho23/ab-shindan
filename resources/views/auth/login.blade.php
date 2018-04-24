@@ -61,6 +61,9 @@
                         </div>
                     </form>
                 </div>
+                <div class="card-footer text-muted text-center">
+                    <small>診断メーカーのアカウントを持っていない場合は<a class="btn-link" href="{{ route('register') }}">新規登録</a>から。</small>
+                </div>
             </div>
         </div>
         <div class="col-md-4">

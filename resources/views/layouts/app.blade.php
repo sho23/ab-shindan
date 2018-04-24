@@ -60,8 +60,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">ログイン</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">新規登録</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}">診断を作る</a></li>
                         @else
                             <li><a class="btn btn-primary" href="{{ action('PostsController@create') }}">新規追加</a></li>
                             <li class="nav-item dropdown ml-4">
