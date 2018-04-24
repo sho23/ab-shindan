@@ -12,6 +12,15 @@
                 </h5>
             </div>
         </div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         {!! Form::open(['route' => ['questions.store'], 'method' => 'post']) !!}
         {{Form::hidden('post_id', $post->id)}}
             <div class="row">
@@ -31,7 +40,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="question{{ $i }}">設問{{ $i }}.</label>
-                                <input type="text" class="form-control" id="question{{ $i }}" name="question{{ $i }}" placeholder="例) 行きつけのラーメン屋がある">
+                                <input type="text" class="form-control" id="question{{ $i }}" name="question{{ $i }}" value="{{old('question' . $i)}}" placeholder="例) 行きつけのラーメン屋がある">
                             </div>
                             <div class="form-group">
                                 <small>設問{{ $i }}.のポイント</small>

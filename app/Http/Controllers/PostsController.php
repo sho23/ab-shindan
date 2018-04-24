@@ -46,7 +46,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|max:255',
+            'title' => 'required|max:20',
             'detail' => 'required',
         ]);
         $post = new Post;
@@ -127,6 +127,11 @@ class PostsController extends Controller
             return redirect()->route('posts.index')->with('faild', 'データの編集に失敗しました');
         }
 
+        $this->validate($request, [
+            'title' => 'required|max:20',
+            'detail' => 'required',
+        ]);
+
         $post = Post::find($id);
 
         if (isset($request->jump_img)) {
@@ -137,6 +142,7 @@ class PostsController extends Controller
                 return redirect()->back()->withInput()->withErrors(['file' => '画像がアップロードされていないか不正なデータです。']);
             }
         }
+
         $post->title = $request->title;
         $post->detail = $request->detail;
         $post->key_color = $request->key_color;

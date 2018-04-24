@@ -72,7 +72,12 @@ class JudgmentsController extends Controller
     public function update(Request $request, $id)
     {
         $judgment = Judgment::find($id);
+
         for ($i=1; $i <= 5; $i++) {
+            $this->validate($request, [
+                'range' . $i => 'required|max:255',
+                'range_text' . $i => 'required',
+            ]);
             if (isset($request->{'range_img' . $i})) {
                 if ($this->fileUpload($request, $i)) {
                     $filename = $request->{'range_img' . $i}->store('public/image/judgment');

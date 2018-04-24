@@ -21,6 +21,15 @@
                             </ul>
                         </div>
                         <div class="col-md-9">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <?php $rangeList = ['結果が50~41ポイントのとき', '結果が40~31ポイントのとき', '結果が30~21ポイントのとき', '結果が20~11ポイントのとき', '結果が10~0ポイントのとき']; ?>
                             @foreach ($rangeList as $key => $range)
                                 <?php $order = $key + 1; ?>
