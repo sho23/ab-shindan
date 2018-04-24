@@ -47,8 +47,8 @@
                                         <div class="form-group">
                                             <small>設問{{ $quesiton->order }}.のポイント</small>
                                             <div>
-                                                <label class="mr-4">{{ Form::radio('invert_flag' . $quesiton->id, 0, !$quesiton->invert_flag)}}「はい」に10ポイント</label>
-                                                <label class="mr-4">{{ Form::radio('invert_flag' . $quesiton->id, 1, $quesiton->invert_flag)}}「いいえ」に10ポイント</label>
+                                                <label class="mr-4">{{ Form::radio('invert_flag' . $quesiton->id, 0, !$quesiton->invert_flag)}}「はい」に<span class="variable-point">10</span>ポイント</label>
+                                                <label class="mr-4">{{ Form::radio('invert_flag' . $quesiton->id, 1, $quesiton->invert_flag)}}「いいえ」に<span class="variable-point">10</span>ポイント</label>
                                             </div>
                                         </div>
                                     </div>

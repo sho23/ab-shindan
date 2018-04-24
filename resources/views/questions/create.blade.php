@@ -36,8 +36,8 @@
                             <div class="form-group">
                                 <small>設問{{ $i }}.のポイント</small>
                                 <div>
-                                    <label class="mr-4">{{ Form::radio('invert_flag' . $i, 0, true)}}「はい」に10ポイント</label>
-                                    <label class="mr-4">{{ Form::radio('invert_flag' . $i, 1, false)}}「いいえ」に10ポイント</label>
+                                    <label class="mr-4">{{ Form::radio('invert_flag' . $i, 0, true)}}「はい」に<span class="variable-point">10</span>ポイント</label>
+                                    <label class="mr-4">{{ Form::radio('invert_flag' . $i, 1, false)}}「いいえ」に<span class="variable-point">10</span>ポイント</label>
                                 </div>
                             </div>
                         </div>

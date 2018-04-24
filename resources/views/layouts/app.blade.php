@@ -110,8 +110,10 @@
                 var val = $('[name=number]').val();
                 if (val == 1) {
                     $(".extr").css('display', 'none');
+                    $(".variable-point").text('10');
                 } else {
                     $(".extr").css('display', 'inherit');
+                    $(".variable-point").text('5');
                 }
             }).change();
         });
