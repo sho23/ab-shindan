@@ -25,10 +25,17 @@ class HomeController extends Controller
     public function index()
     {
         $posts = DB::table('posts')
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->where('open_flag', true)
-                ->paginate(15);
-        return view('home.index', ['posts' => $posts]);
+                ->paginate(12);
+        $picPosts = DB::table('posts')
+                ->orderBy('id', 'desc')
+                ->where('open_flag', true)
+                ->where('pickup_flag', true)
+                ->limit(3)
+                ->get();
+
+        return view('home.index', compact('posts', 'picPosts'));
     }
 
     public function terms()

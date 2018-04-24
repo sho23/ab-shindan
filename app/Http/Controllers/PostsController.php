@@ -22,7 +22,7 @@ class PostsController extends Controller
         $user = \Auth::user();
         $posts = DB::table('posts')
                 ->where('user_id', $user->id)
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
         return view('posts.index', compact('posts', 'user'));
     }
