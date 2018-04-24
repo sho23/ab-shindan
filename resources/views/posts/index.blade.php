@@ -4,7 +4,7 @@
 <div id="wrap">
     <div class="container">
         <div class="page-header">
-            <h3 class="text-center">{{ $user->name }}の作成した診断一覧</h3>
+            <h5 class="text-center">{{ $user->name }}の作成した診断一覧</h5>
         </div>
         @if (session('succeed'))
             <div class="alert alert-success">
