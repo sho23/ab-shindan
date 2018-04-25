@@ -27,6 +27,7 @@ class HomeController extends Controller
         $posts = DB::table('posts')
                 ->orderBy('id', 'desc')
                 ->where('open_flag', true)
+                ->where('pickup_flag', false)
                 ->paginate(12);
         $picPosts = DB::table('posts')
                 ->orderBy('id', 'desc')
