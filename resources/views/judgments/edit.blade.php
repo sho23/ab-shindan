@@ -53,17 +53,21 @@
                                             <label for="range_text{{$order}}">結果説明{{ $order }}</label>
                                             {{Form::text('range_text' . $order, $judgment->{'range_text'.$order}, ['id' => 'range_text' . $order, 'class' => 'form-control'])}}
                                         </div>
-                                        <div class="form-group result-img">
+                                        <div class="form-group result-img f-upload">
+                                            <small>診断結果画像(420x300推奨)</small>
                                             @if ($judgment->{'range_img'.$order})
-                                                <p>
-                                                    <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img'.$order}) }}" alt="" class="img-fluid">
+                                                <p class="my-4 curImg">
+                                                    <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img'.$order}) }}" alt="" class="img-fluid" width="420px" heght="300px;">
                                                 </p>
                                             @endif
-                                            {!! Form::label('range_img' . $order, '診断結果画像(420x300推奨)', ['class' => 'control-label']) !!}
-                                            {!! Form::file('range_img' . $order, ['style' => 'display:none;']) !!}
-                                            <div class="input-group">
-                                                <input type="text" id="photoCover{{$order}}" class="form-control" placeholder="ファイルを選択してください">
-                                                <span class="input-group-btn"><button type="button" class="btn btn-info" onclick="$('input[id=range_img{{$order}}]').click();">参照</button></span>
+                                            <div class="imagePreview"></div>
+                                            <div class="input-group mt-2">
+                                                <label class="input-group-btn">
+                                                    <span class="btn btn-info">
+                                                        Choose File{!! Form::file('range_img' . $order, ['style' => 'display:none;', 'class' => 'img-fluid']) !!}
+                                                    </span>
+                                                </label>
+                                                <input type="text" class="form-control text-info" readonly="">
                                             </div>
                                         </div>
                                     </div>
@@ -79,21 +83,4 @@
         {!! Form::close() !!}
     </div>
 </div>
-<script>
-    $('input[id=range_img1]').change(function() {
-        $('#photoCover1').val($(this).val());
-    });
-    $('input[id=range_img2]').change(function() {
-        $('#photoCover2').val($(this).val());
-    });
-    $('input[id=range_img3]').change(function() {
-        $('#photoCover3').val($(this).val());
-    });
-    $('input[id=range_img4]').change(function() {
-        $('#photoCover4').val($(this).val());
-    });
-    $('input[id=range_img5]').change(function() {
-        $('#photoCover5').val($(this).val());
-    });
-</script>
 @endsection

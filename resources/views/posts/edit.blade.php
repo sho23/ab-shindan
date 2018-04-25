@@ -52,17 +52,21 @@
                                 <label for="jump_text">バナーのテキスト</label>
                                 {{Form::text('jump_text',$post->jump_text, ['id' => 'jump_text', 'class' => 'form-control',  'placeholder' => "例) 絶賛キャンペーン中！！"])}}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group f-upload">
+                                <small>診断結果画像(420x300推奨)</small>
                                 @if ($post->jump_img)
-                                    <p>
-                                        <img src="{{ asset('storage/image/jump_images/' . $post->jump_img) }}" alt="" class="img-fluid">
+                                    <p class="my-4 curImg">
+                                        <img src="{{ asset('storage/image/jump_images/' . $post->jump_img) }}" alt="" class="img-fluid" width="420px" heght="300px;">
                                     </p>
                                 @endif
-                                {!! Form::label('jump_img', 'バナー画像(420x300推奨)', ['class' => 'control-label']) !!}
-                                {!! Form::file('jump_img', ['style' => 'display:none;']) !!}
-                                <div class="input-group">
-                                  <input type="text" id="photoCover" class="form-control" placeholder="ファイルを選択してください">
-                                  <span class="input-group-btn"><button type="button" class="btn btn-info" onclick="$('input[id=jump_img]').click();">Browse</button></span>
+                                <div class="imagePreview"></div>
+                                <div class="input-group mt-2">
+                                    <label class="input-group-btn">
+                                        <span class="btn btn-info">
+                                            Choose File{!! Form::file('jump_img', ['style' => 'display:none;']) !!}
+                                        </span>
+                                    </label>
+                                    <input type="text" class="form-control text-info" readonly="">
                                 </div>
                             </div>
                             <div class="card-body text-center">
@@ -75,9 +79,4 @@
         {!! Form::close() !!}
     </div>
 </div>
-<script>
-    $('input[id=jump_img]').change(function() {
-        $('#photoCover').val($(this).val());
-    });
-</script>
 @endsection
