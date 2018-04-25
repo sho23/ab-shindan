@@ -98,10 +98,10 @@ class PostsController extends Controller
             $range = 1;
         }
         if ($judgment->img_type == 1) {
-            $numImgs = ['num50.png', 'num40.png', 'num30.png', 'num20.png', 'num10.png', 'num10.png'];
+            $numImgs = ['num50.png', 'num40.png', 'num30.png', 'num20.png', 'num10.png', 'num0.jpg'];
             $resultImg = $numImgs[$range -1];
         } elseif ($judgment->img_type == 2) {
-            $starImgs = ['star5.png', 'star4.png', 'star3.png', 'star2.png', 'star1.png', 'star1.png'];
+            $starImgs = ['star5.png', 'star4.png', 'star3.png', 'star2.png', 'star1.png', 'star0.jpg'];
             $resultImg = $starImgs[$range -1];
         } else {
             $resultImg = $judgment->{'range_img'.$range};
