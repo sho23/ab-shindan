@@ -23,7 +23,7 @@ class PostsController extends Controller
         $posts = DB::table('posts')
                 ->where('user_id', $user->id)
                 ->orderBy('id', 'desc')
-                ->get();
+                ->paginate(15);
         return view('posts.index', compact('posts', 'user'));
     }
 

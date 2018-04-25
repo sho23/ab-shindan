@@ -58,6 +58,9 @@
                 </div>
             @endif
         </div>
+        <div class="mt-4 center-block text-center">
+            {{ $posts->links() }}
+        </div>
     </div>
 </div>
 @endsection
