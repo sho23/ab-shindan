@@ -99,7 +99,7 @@ class JudgmentsTableSeeder extends Seeder
             'range_text1' => 'アンタ、オトコの心のこと知り尽くしてるわね！？ 正真正銘の小悪魔よ！',
             'range_text2' => 'はい、出た小悪魔！そうやって男をたぶらかせてるの!?',
             'range_text3' => '小悪魔一歩手前よ！ 計算高い女なのはバレてるんだからね！',
-            'range_text4' => '',
+            'range_text4' => '隠れファンは多いのに気づいてない残念なタイプね！',
             'range_text5' => '純粋でピュアな心を持っているわね！',
             'range_text6' => '小悪魔どうこう以前に恋愛しなさい、この干物女！',
         ]);
