@@ -26,9 +26,89 @@ class QuestionsTableSeeder extends Seeder
     	for ($i=1; $i <= 10; $i++) {
     		$j = $i - 1;
             DB::table('questions')->insert([
-            	'post_id' => 1,
+                'post_id' => 4,
             	'title' => $titles[$j],
                 'order' => $i,
+            ]);
+        }
+
+       $titles = [
+            ['行けたら行くはいかない', 0],
+            ['話し始めは「ちゃうねん」', 0],
+            ['今川焼き、回転焼き、大判焼き、一番しっくりくるのは今川焼き', 1],
+            ['語尾に「知らんけど」をつけて話す', 0],
+            ['モータープールと言われてなにかわかる', 0],
+        ];
+        foreach ($titles as $key => $title) {
+            DB::table('questions')->insert([
+                'post_id' => 2,
+                'title' => $title[0],
+                'order' => $key + 1,
+                'invert_flag' => $title[1],
+            ]);
+        }
+
+       $titles = [
+            ['マクドナルドをマクドと略す', 0],
+            ['「アホやな～」と言われても特にムカつかない', 0],
+            ['ぶっちゃけ関西人は全員面白い人種やと思っている', 1],
+            ['イカ焼きといえばイカの姿焼き', 1],
+            ['「放出駅」の読み方は「ほうしゅつ駅」', 1],
+        ];
+        foreach ($titles as $key => $title) {
+            DB::table('questions')->insert([
+                'post_id' => 1,
+                'title' => $title[0],
+                'order' => $key + 1,
+                'invert_flag' => $title[1],
+            ]);
+        }
+
+       $titles = [
+            ['お任せします"のワードが信用できない', 0],
+            ['余白の美しさをクライアントの一言で台無しにされたことがある', 0],
+            ['白とグレーの市松模様が「透明」に見える', 0],
+            ['クライアントからの提供画像はいつでも高解像度', 1],
+            ['「思いついちゃったんですけど…」に殺意を感じる', 0],
+        ];
+        foreach ($titles as $key => $title) {
+            DB::table('questions')->insert([
+                'post_id' => 3,
+                'title' => $title[0],
+                'order' => $key + 1,
+                'invert_flag' => $title[1],
+            ]);
+        }
+
+       $titles = [
+            ['ものを片付けないで、「片す」', 0],
+            ['知り合いのオジサンに１人くらいは一人称が「オイラ」な人がいる', 0],
+            ['東京タワーが大好き', 1],
+            ['布団を「ひく」のか「しく」のかで悩んだことがある', 0],
+            ['生まれを名乗ると「ちゃきちゃき？」と聞かれることにうんざりしている', 0],
+        ];
+        foreach ($titles as $key => $title) {
+            DB::table('questions')->insert([
+                'post_id' => 5,
+                'title' => $title[0],
+                'order' => $key + 1,
+                'invert_flag' => $title[1],
+            ]);
+        }
+
+       $titles = [
+            ['今まで付き合った相手のほとんどは向こうからの告白で付き合った', 0],
+            ['同性より異性の友だちのほうが多い', 0],
+            ['アネゴ肌とよく言われる', 1],
+            ['LINEでよくハートマークを使う', 0],
+            ['真面目でつまらない人、チャラくておもしろい人付き合うなら後者', 0],
+        ];
+        foreach ($titles as $key => $title) {
+            DB::table('questions')->insert([
+                'post_id' => 6,
+                'title' => $title[0],
+                'order' => $key + 1,
+                'invert_flag' => $title[1],
             ]);
         }
     }
