@@ -52,7 +52,7 @@ return [
     'json'                 => 'The :attribute must be a valid JSON string.',
     'max'                  => [
         'numeric' => ':attributeは :max文字以内です。',
-        'file'    => 'The :attribute may not be greater than :max kilobytes.',
+        'file'    => ':attributeの上限は:max KBです。',
         'string'  => ':attributeは :max文字以内です。',
         'array'   => 'The :attribute may not have more than :max items.',
     ],

@@ -199,7 +199,7 @@ class PostsController extends Controller
         $this->validate($request, [
             'jump_img' => [
                 'file',
-                'dimensions:min_width=50,min_height=50,max_width=1200,max_height=1200',
+                'max:10240',
             ]
         ]);
         return $request->file('jump_img')->isValid([]);

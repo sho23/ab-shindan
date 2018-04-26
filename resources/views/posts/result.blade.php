@@ -11,7 +11,7 @@
                 <h3 class="card-title">{{ $judgment->{"range" . $range} }}</h3>
                 <p class="card-text">{{ $judgment->{"range_text" . $range} }}</p>
                 @if ($judgment->{'range_img'.$range})
-                    <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img' . $range}) }}" alt="" class="img-fluid mt-4">
+                    <img src="{{ asset('storage/image/judgment/' . $judgment->{'range_img' . $range}) }}" alt="" class="img-fluid mt-4" style="max-width: 420px;">
                 @else
                     <img src="{{ asset('image/' . $resultImg) }}" alt="" class="img-fluid mt-4">
                 @endif
