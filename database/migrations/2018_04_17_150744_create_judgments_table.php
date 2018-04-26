@@ -35,7 +35,7 @@ class CreateJudgmentsTable extends Migration
             $table->string('range_img4')->nullable();
             $table->string('range_img5')->nullable();
             $table->string('range_img6')->nullable();
-            $table->integer('img_type')->default(1);
+            $table->integer('img_type')->default(3);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->foreign('post_id')

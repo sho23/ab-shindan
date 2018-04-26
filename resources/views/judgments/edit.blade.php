@@ -36,6 +36,7 @@
                                         <p>画像タイプ</p>
                                         <label class="mr-4">{{ Form::radio('img_type', 1, $judgment->img_type == 1)}}　<img src="{{ asset('/image/num50.png') }}" alt="" style="max-width:50px;"> ポイント</label>
                                         <label class="mr-4">{{ Form::radio('img_type', 2, $judgment->img_type == 2)}}　<img src="{{ asset('/image/star5.png') }}" alt="" style="max-width:50px;"> 星</label>
+                                        <label class="mr-4">{{ Form::radio('img_type', 3, $judgment->img_type == 3)}}　<img src="{{ asset('/image/100per.jpg') }}" alt="" style="max-width:50px;"> パーセント</label>
                                         <label class="mr-4">{{ Form::radio('img_type', 0, $judgment->img_type == 0)}}　個別に指定する</label>
                                     </div>
                                 </div>
