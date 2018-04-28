@@ -13,7 +13,7 @@
             </div>
             <div class="row mx-auto mb-4">
                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo url('/posts/' . $post->id); ?>" class="btn btn-default mx-2" style="background:#4867ad;">facebookでシェア</a>
-                <a href="http://twitter.com/share?url=<?php echo url('/posts/' . $post->id); ?>&text={{ $post->title }}&hashtags=AB診断メーカー, {{ $post->title }}" class="btn btn-default mx-2" style="background:#5babea;">twitterでシェア</a>
+                <a href="http://twitter.com/share?url=<?php echo url('/posts/' . $post->id); ?>&text={{ $post->title }}&hashtags=AB診断メーカー,{{ $post->title }}" class="btn btn-default mx-2" style="background:#5babea;">twitterでシェア</a>
             </div>
             <div class="row mx-auto mb-4">
                 <a href="{{ action('PostsController@index') }}" class="btn btn-primary">マイページへ</a>
