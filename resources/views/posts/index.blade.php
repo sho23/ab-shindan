@@ -23,9 +23,9 @@
                             <h4 class="card-title"> <a href="{{ action('PostsController@show', $post->id) }}" target="_blank">{{ $post->title }}</a></h4>
                             <p class="card-text">{{ mb_strimwidth($post->detail, 0, 100, "...") }}</p>
                             <a href="{{ action('PostsController@edit', $post->id) }}" class="btn btn-primary">編集</a>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">削除</button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{$post->id}}">削除</button>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="deleteModal{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
